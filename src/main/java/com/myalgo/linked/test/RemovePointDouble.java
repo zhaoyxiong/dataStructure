@@ -12,21 +12,22 @@ public class RemovePointDouble {
 		root.next.next.next.next.next.next = new ListNode(1);
 		System.out.println( "---------> " + deleteDuplication(root));
 	}
+	
 	public static ListNode deleteDuplication(ListNode pHead) {
 		ListNode root = new ListNode(-1);
 		root.next = pHead;
 		ListNode temp = new ListNode(-1);
 		temp.next = pHead;
 		System.out.println(pHead);
-		// Èç¹ûÎªnullÁ´±í£¬Ö±½Ó·µ»ØÍ·½áµã
+		// ï¿½ï¿½ï¿½Îªnullï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó·ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½
 		if (root.next == null) {
 			return pHead;
 		}
-		// Èç¹ûÖ»ÓÐÒ»¸ö,ÔòÖ±½Ó·µ»ØÍ·½áµã
+		// ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½ï¿½,ï¿½ï¿½Ö±ï¿½Ó·ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½
 		if (root.next.next == null) {
 			return pHead;
 		}
-		// ´ýÕå×Ã,¿ÉÉ¾³ý
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½É¾ï¿½ï¿½
 		/*
 		 * if(root.next.val == root.next.next.val){ root.next =
 		 * root.next.next.next; }
@@ -34,17 +35,17 @@ public class RemovePointDouble {
 		root = temp;
 		System.out.println("root is " + root);
 		while (temp.next != null) {
-			// Èç¹û£¬ºóÁ½Î»²»Îªnull
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Îªnull
 			if (temp.next.next != null) {
 				if (temp.next.val == temp.next.next.val) {
 					System.out.println(temp);
 					System.out.println("root is " + root);
 					if (temp.next.next.next != null) {
 						if (temp.next.next.val == temp.next.next.next.val) {
-							//Èç¹ûÓÐ2¸öÒÔÉÏ£¬tempºóÒÆ
+							//ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½tempï¿½ï¿½ï¿½ï¿½
 							temp.next.next = temp.next.next.next;
 						} else {
-							//Èç¹ûÖ»ÓÐÁ½¸ö,tempºóÒÆÁ½Î»
+							//ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,tempï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»
 							temp.next = temp.next.next.next;
 						}
 					}
@@ -54,7 +55,7 @@ public class RemovePointDouble {
 					System.out.println(temp);
 					System.out.println("root is " + root);
 				} else {
-					// Èç¹û²»ÏàµÈ£¬ºóÒÆ
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½
 					temp = temp.next;
 					System.out.println(temp);
 					System.out.println(" 2 root is " + root);
@@ -66,6 +67,7 @@ public class RemovePointDouble {
 		pHead = root.next;
 		return pHead;
 	}
+	//ç¼ºå°‘UTF-8
 }
 
 class ListNode {
@@ -79,5 +81,4 @@ class ListNode {
 	public String toString() {
 		return "ListNode [val=" + val + ", next=" + next + "]";
 	}
-	
 }
